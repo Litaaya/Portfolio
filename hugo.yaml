@@ -14,10 +14,10 @@ languages:
     menu:
       main:
         - name: "Blogs"
-          url: "/posts/"
+          url: "posts/"
           weight: 10
         - name: "Tags"
-          url: "/tags/"
+          url: "tags/"
           weight: 20
     params:
       homeInfoParams:
@@ -35,10 +35,10 @@ languages:
     menu:
       main:
         - name: "Blogs"
-          url: "/posts/"
+          url: "posts/"
           weight: 10
         - name: "Tags"
-          url: "/tags/"
+          url: "tags/"
           weight: 20
     params:
       homeInfoParams:
