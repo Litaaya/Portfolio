@@ -1,0 +1,33 @@
+baseURL: "http://localhost:1313/"
+languageCode: "vi-vn"
+theme: "PaperMod"
+
+defaultContentLanguage: vi
+defaultContentLanguageInSubdir: false
+
+languages:
+  vi:
+    languageName: "Tiếng Việt"
+    weight: 1
+    title: Litaaya Blog
+    params:
+      homeInfoParams:
+        Title: "Chào cậu,"
+        Content: >
+          Thật tuyệt khi có thể gặp cậu ở đây.
+      socialIcons:
+        - name: "github"
+          url: "https://github.com/Litaaya"
+
+  en:
+    languageName: "English"
+    weight: 2
+    title: Litaaya Blog
+    params:
+      homeInfoParams:
+        Title: "Hi friend,"
+        Content: >
+          It's great to see you here.
+      socialIcons:
+        - name: "github"
+          url: "https://github.com/Litaaya"

@@ -1,0 +1,4 @@
+.venv/
+hugo.exe
+resources/
+public/
