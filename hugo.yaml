@@ -1,6 +1,7 @@
-baseURL: "http://localhost:1313/"
+baseURL: "https://Litaaya.github.io/Portfolio/"
 languageCode: "vi-vn"
 theme: "PaperMod"
+canonifyURLs: true
 
 defaultContentLanguage: vi
 defaultContentLanguageInSubdir: false
@@ -10,6 +11,14 @@ languages:
     languageName: "Tiếng Việt"
     weight: 1
     title: Litaaya Blog
+    menu:
+      main:
+        - name: "Blogs"
+          url: "/posts/"
+          weight: 10
+        - name: "Tags"
+          url: "/tags/"
+          weight: 20
     params:
       homeInfoParams:
         Title: "Chào cậu,"
@@ -23,6 +32,14 @@ languages:
     languageName: "English"
     weight: 2
     title: Litaaya Blog
+    menu:
+      main:
+        - name: "Blogs"
+          url: "/posts/"
+          weight: 10
+        - name: "Tags"
+          url: "/tags/"
+          weight: 20
     params:
       homeInfoParams:
         Title: "Hi friend,"
