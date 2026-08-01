@@ -6,6 +6,12 @@ canonifyURLs: true
 defaultContentLanguage: vi
 defaultContentLanguageInSubdir: false
 
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
 languages:
   vi:
     languageName: "Tiếng Việt"
@@ -27,6 +33,15 @@ languages:
       socialIcons:
         - name: "github"
           url: "https://github.com/Litaaya"
+      fuseOpts:
+        isCaseSensitive: false
+        shouldSort: true
+        location: 0
+        distance: 100
+        threshold: 0.3
+        minMatchCharLength: 2
+        keys:
+          - title
 
   en:
     languageName: "English"
@@ -48,3 +63,12 @@ languages:
       socialIcons:
         - name: "github"
           url: "https://github.com/Litaaya"
+      fuseOpts:
+        isCaseSensitive: false
+        shouldSort: true
+        location: 0
+        distance: 100
+        threshold: 0.3
+        minMatchCharLength: 2
+        keys:
+          - title
