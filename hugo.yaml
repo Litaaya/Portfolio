@@ -16,23 +16,32 @@ languages:
   vi:
     languageName: "Tiếng Việt"
     weight: 1
-    title: Litaaya Blog
+    title: "Litaaya Blog"
+
     menu:
       main:
         - name: "Blogs"
-          url: "posts/"
+          url: "/posts/"
           weight: 10
+
         - name: "Tags"
-          url: "tags/"
+          url: "/tags/"
           weight: 20
+
+        - name: "Tìm kiếm"
+          url: "/search/"
+          weight: 30
+
     params:
       homeInfoParams:
         Title: "Chào cậu,"
         Content: >
           Thật tuyệt khi có thể gặp cậu ở đây.
+
       socialIcons:
         - name: "github"
           url: "https://github.com/Litaaya"
+
       fuseOpts:
         isCaseSensitive: false
         shouldSort: true
@@ -42,28 +51,36 @@ languages:
         minMatchCharLength: 2
         keys:
           - title
-          - tags
 
   en:
     languageName: "English"
     weight: 2
-    title: Litaaya Blog
+    title: "Litaaya Blog"
+
     menu:
       main:
         - name: "Blogs"
-          url: "posts/"
+          url: "/posts/"
           weight: 10
+
         - name: "Tags"
-          url: "tags/"
+          url: "/tags/"
           weight: 20
+
+        - name: "Search"
+          url: "/search/"
+          weight: 30
+
     params:
       homeInfoParams:
         Title: "Hi friend,"
         Content: >
           It's great to see you here.
+
       socialIcons:
         - name: "github"
           url: "https://github.com/Litaaya"
+
       fuseOpts:
         isCaseSensitive: false
         shouldSort: true
@@ -73,4 +90,3 @@ languages:
         minMatchCharLength: 2
         keys:
           - title
-          - tags
