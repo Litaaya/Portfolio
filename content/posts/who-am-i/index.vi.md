@@ -3,7 +3,7 @@ date: '2026-07-13'
 draft: false
 title: 'Who Am I'
 weight: 1
-tags: ["Introduction"]
+tags: ["introduction"]
 description: "Giới thiệu về bản thân"
 ---
 

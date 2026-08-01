@@ -3,7 +3,7 @@ title: 'Who Am I'
 date: '2026-07-13'
 draft: false
 weight: 1
-tags: ["Introduction"]
+tags: ["introduction"]
 description: "Introduction about me"
 ---
 
