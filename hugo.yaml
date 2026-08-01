@@ -21,15 +21,15 @@ languages:
     menu:
       main:
         - name: "Blogs"
-          pageRef: "/Portfolio/posts"
+          pageRef: "/posts"
           weight: 10
 
         - name: "Tags"
-          pageRef: "/Portfolio/tags"
+          pageRef: "/tags"
           weight: 20
 
         - name: "Tìm kiếm"
-          pageRef: "/Portfolio/search"
+          pageRef: "/search"
           weight: 30
 
     params:
@@ -60,15 +60,15 @@ languages:
     menu:
       main:
         - name: "Blogs"
-          pageRef: "/Portfolio/posts"
+          pageRef: "/posts"
           weight: 10
 
         - name: "Tags"
-          pageRef: "/Portfolio/tags"
+          pageRef: "/tags"
           weight: 20
 
         - name: "Search"
-          pageRef: "/Portfolio/search"
+          pageRef: "/search"
           weight: 30
 
     params:
