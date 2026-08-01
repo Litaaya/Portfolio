@@ -1,7 +1,17 @@
 ---
 title: "Scrum process"
 date: 2026-08-01
-draft: true
-tags: []
-description: ""
+draft: false
+tags: ["scrum"]
+description: "Something about Scrum process"
+---
+
+> ref: https://www.nimblework.com/agile/scrum-methodology/
+>
+> This is an article I wrote during my self-study process, with the content reinterpreted according to my own understanding.
+
+---
+
+If you want to read the English version, I think you should read the article in the referral link above; it will be much more complete and better, since English is not my native language anyway.
+
 ---
