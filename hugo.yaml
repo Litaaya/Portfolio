@@ -16,7 +16,7 @@ languages:
   vi:
     languageName: "Tiếng Việt"
     weight: 1
-    title: "Litaaya Blog"
+    title: "Litaaya"
 
     menu:
       main:
@@ -55,7 +55,7 @@ languages:
   en:
     languageName: "English"
     weight: 2
-    title: "Litaaya Blog"
+    title: "Litaaya"
 
     menu:
       main:
