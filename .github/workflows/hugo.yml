@@ -37,7 +37,7 @@ jobs:
           extended: true
 
       - name: Build with Hugo
-        run: hugo --gc --minify
+        run: hugo --gc --minify --baseURL "https://litaaya.github.io/Portfolio/"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
