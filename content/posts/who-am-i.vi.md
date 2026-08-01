@@ -1,5 +1,5 @@
 ---
-date: '2026-07-13T16:24:04+07:00'
+date: '2026-07-13'
 draft: false
 title: 'Who Am I'
 weight: 1
