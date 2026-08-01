@@ -42,6 +42,7 @@ languages:
         minMatchCharLength: 2
         keys:
           - title
+          - tags
 
   en:
     languageName: "English"
@@ -72,3 +73,4 @@ languages:
         minMatchCharLength: 2
         keys:
           - title
+          - tags
