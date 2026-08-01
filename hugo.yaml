@@ -1,7 +1,7 @@
 baseURL: "https://Litaaya.github.io/Portfolio/"
 languageCode: "vi-vn"
 theme: "PaperMod"
-canonifyURLs: true
+canonifyURLs: false
 
 defaultContentLanguage: vi
 defaultContentLanguageInSubdir: true
@@ -21,15 +21,15 @@ languages:
     menu:
       main:
         - name: "Blogs"
-          pageRef: "/posts"
+          url: "posts/"
           weight: 10
 
         - name: "Tags"
-          pageRef: "/tags"
+          url: "tags/"
           weight: 20
 
         - name: "Tìm kiếm"
-          pageRef: "/search"
+          url: "search/"
           weight: 30
 
     params:
@@ -60,15 +60,15 @@ languages:
     menu:
       main:
         - name: "Blogs"
-          pageRef: "/posts"
+          url: "posts/"
           weight: 10
 
         - name: "Tags"
-          pageRef: "/tags"
+          url: "tags/"
           weight: 20
 
         - name: "Search"
-          pageRef: "/search"
+          url: "search/"
           weight: 30
 
     params:
