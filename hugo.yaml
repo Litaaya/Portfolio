@@ -6,6 +6,9 @@ canonifyURLs: false
 defaultContentLanguage: vi
 defaultContentLanguageInSubdir: true
 
+params:
+  ShowScrollToTop: true
+
 outputs:
   home:
     - HTML
