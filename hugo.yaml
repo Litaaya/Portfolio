@@ -9,6 +9,11 @@ defaultContentLanguageInSubdir: true
 params:
   ShowScrollToTop: true
 
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
 outputs:
   home:
     - HTML
