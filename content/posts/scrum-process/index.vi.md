@@ -6,7 +6,7 @@ tags: ["scrum"]
 description: "Something about Scrum process"
 ---
 
-> ref: https://www.nimblework.com/agile/scrum-methodology/
+> ref: [Scrum Methodology: How Agile Teams Deliver Better — And What to Look for in Scrum Software](https://www.nimblework.com/agile/scrum-methodology/)
 > 
 > Đây là bài viết mình thực hiện trong quá trình tự học, với nội dung được diễn giải lại theo cách hiểu của bản thân.
 
