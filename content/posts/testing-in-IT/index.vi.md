@@ -6,6 +6,11 @@ tags: ["software-testing", "unit-testing", "integration-testing"]
 description: "Tổng quan về Software Testing, Unit Testing và Integration Testing"
 ---
 
+> ref: \
+    - https://www.guru99.com/software-testing-introduction-importance.html \
+    - https://www.guru99.com/unit-testing-guide.html \
+    - https://www.guru99.com/integration-testing.html
+> 
 > Hân hạnh cảm ơn chat GPT đã tài trợ vẽ mấy cái mô hình và ví dụ, vì người viết lười vào draw.io hoặc excalidraw để vẽ =))
 
 ---

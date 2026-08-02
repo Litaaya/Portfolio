@@ -6,6 +6,11 @@ tags: ["software-testing", "unit-testing", "integration-testing"]
 description: "An overview of software testing, unit testing, and integration testing"
 ---
 
+> ref: \
+    - https://www.guru99.com/software-testing-introduction-importance.html \
+    - https://www.guru99.com/unit-testing-guide.html \
+    - https://www.guru99.com/integration-testing.html
+> 
 > A big thank you to ChatGPT for generating the diagrams and examples, since I was too lazy to draw them myself in draw.io or Excalidraw =))
 
 ---
