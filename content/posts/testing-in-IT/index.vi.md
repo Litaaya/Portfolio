@@ -1,7 +1,7 @@
 ---
 title: "[Software][Unit][Integration] Testing"
 date: 2026-08-02
-draft: true
+draft: false
 tags: ["software-testing", "unit-testing", "integration-testing"]
 description: "Tổng quan về Software Testing, Unit Testing và Integration Testing"
 ---
