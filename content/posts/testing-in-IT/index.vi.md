@@ -1,5 +1,5 @@
 ---
-title: "[Software][Unit][Integration] Testing"
+title: "Software, Unit and Integration Testing"
 date: 2026-08-02
 draft: false
 tags: ["software-testing", "unit-testing", "integration-testing"]
