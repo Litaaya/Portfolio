@@ -8,6 +8,7 @@ defaultContentLanguageInSubdir: true
 
 params:
   ShowScrollToTop: true
+  ShowToc: true
 
 markup:
   goldmark:
