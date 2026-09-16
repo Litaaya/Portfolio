@@ -1,7 +1,7 @@
 ---
 title: "PostgreSQL"
 date: 2026-09-15
-draft: true
+draft: false
 tags: ["PostgreSQL"]
 description: "Some basic information about postgresql"
 ---
