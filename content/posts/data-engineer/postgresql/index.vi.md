@@ -6,6 +6,7 @@ tags: ["PostgreSQL"]
 description: "Một vài thông tin cơ bản về postgresql"
 ---
 > ref: https://neon.com/postgresql/python
+> 
 > Mình đã sử dụng Postgresql trong quá trình học và làm việc khá nhiều nhưng đa phần là làm lúc bắt đầu luôn nên mấy cái cơ bản của postgres mình không nắm vững lắm. Blog này nhằm mục đích tóm tắt cơ bản về postgres để mốt lôi ra đọc cho đỡ quên.
 
 ---

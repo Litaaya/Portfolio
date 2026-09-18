@@ -6,6 +6,7 @@ tags: ["PostgreSQL"]
 description: "Some basic information about postgresql"
 ---
 > ref: https://neon.com/postgresql/python
+> 
 > I have used Postgresql quite a lot during studying and working but most of the time I just started using it right away so I do not understand the basics of postgres very well. This blog aims to summarize the basics of postgres so I can pull it out to read later and avoid forgetting.
 
 ---
