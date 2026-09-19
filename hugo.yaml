@@ -29,6 +29,10 @@ languages:
 
     menu:
       main:
+        - name: "Projects"
+          url: "../en/projects/"
+          weight: 5
+
         - name: "Blogs"
           url: "posts/"
           weight: 10
@@ -68,6 +72,10 @@ languages:
 
     menu:
       main:
+        - name: "Projects"
+          url: "projects/"
+          weight: 5
+
         - name: "Blogs"
           url: "posts/"
           weight: 10
