@@ -15,6 +15,11 @@ markup:
     renderer:
       unsafe: true
 
+  highlight:
+    style: github
+    lineNos: false
+    noClasses: true
+
 outputs:
   home:
     - HTML

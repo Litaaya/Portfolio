@@ -23,8 +23,8 @@
     --tertiary: #E3EAE6;
     --content: #37413E;
 
-    --code-block-bg: #F1F5F3;
-    --code-bg: #EEF3F1;
+    --code-block-bg: #F6F8FA;
+    --code-bg: #EDF2EF;
 
     --border: #E3EAE6;
 
@@ -183,17 +183,30 @@ a {
 :not(pre) > code {
     padding: 2px 5px;
 
-    background: var(--code-bg);
+    color: #34413D;
+    background: #EDF2EF;
 
+    border: 1px solid #E1E8E4;
     border-radius: 5px;
 }
 
-pre {
+
+.post-content pre {
+    background: #F6F8FA !important;
+
+    border: 1px solid #E1E6E8;
     border-radius: 10px;
+
+    padding: 16px;
 }
 
+
 .post-content pre code {
+    color: #24292F;
     background: transparent;
+
+    font-size: 0.9em;
+    line-height: 1.6;
 }
 
 
