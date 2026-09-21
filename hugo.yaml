@@ -36,39 +36,16 @@ languages:
       main:
         - name: "Projects"
           url: "../en/projects/"
-          weight: 5
+          weight: 10
 
         - name: "Blogs"
           url: "posts/"
-          weight: 10
-
-        - name: "Tags"
-          url: "tags/"
           weight: 20
 
-        - name: "Tìm kiếm"
-          url: "search/"
+        - name: "Papers"
+          url: "papers/"
           weight: 30
 
-    params:
-      homeInfoParams:
-        Title: "Chào cậu,"
-        Content: >
-          Thật tuyệt khi có thể gặp cậu ở đây.
-
-      socialIcons:
-        - name: "github"
-          url: "https://github.com/Litaaya"
-
-      fuseOpts:
-        isCaseSensitive: false
-        shouldSort: true
-        location: 0
-        distance: 100
-        threshold: 0.3
-        minMatchCharLength: 2
-        keys:
-          - title
 
   en:
     languageName: "English"
@@ -79,36 +56,12 @@ languages:
       main:
         - name: "Projects"
           url: "projects/"
-          weight: 5
+          weight: 10
 
         - name: "Blogs"
           url: "posts/"
-          weight: 10
-
-        - name: "Tags"
-          url: "tags/"
           weight: 20
 
-        - name: "Search"
-          url: "search/"
+        - name: "Papers"
+          url: "papers/"
           weight: 30
-
-    params:
-      homeInfoParams:
-        Title: "Hi friend,"
-        Content: >
-          It's great to see you here.
-
-      socialIcons:
-        - name: "github"
-          url: "https://github.com/Litaaya"
-
-      fuseOpts:
-        isCaseSensitive: false
-        shouldSort: true
-        location: 0
-        distance: 100
-        threshold: 0.3
-        minMatchCharLength: 2
-        keys:
-          - title
