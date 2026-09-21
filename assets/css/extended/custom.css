@@ -609,44 +609,6 @@ html[data-theme="light"] .github-link {
 
 
 /* =========================================================
-   17. HOMEPAGE — TECH STACK
-   ========================================================= */
-
-.stack-list {
-    display: flex;
-    flex-wrap: wrap;
-
-    gap: 10px;
-    margin-top: 22px;
-}
-
-.stack-list span {
-    padding: 8px 12px;
-
-    border-radius: 8px;
-
-    font-size: 0.85rem;
-}
-
-html[data-theme="light"] .stack-list span {
-    color: var(--secondary);
-    border: 1px solid var(--border);
-}
-
-html[data-theme="light"] .stack-list span:nth-child(3n + 1) {
-    background: var(--accent-soft);
-}
-
-html[data-theme="light"] .stack-list span:nth-child(3n + 2) {
-    background: var(--blue-soft);
-}
-
-html[data-theme="light"] .stack-list span:nth-child(3n) {
-    background: var(--warm-soft);
-}
-
-
-/* =========================================================
    18. HOMEPAGE — RECENT POSTS
    ========================================================= */
 
