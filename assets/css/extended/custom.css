@@ -8,6 +8,17 @@
    - Dark mode keeps PaperMod's default colors as much as possible.
    ========================================================= */
 
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+html[data-theme="light"] .header {
+    background: var(--theme);
+    border-bottom: 1px solid var(--border);
+}
+
 
 /* =========================================================
    1. LIGHT MODE PALETTE
@@ -141,16 +152,30 @@ html[data-theme="light"] .page-header .post-description {
 
 /* =========================================================
    6. CODE
-   Leave code colors/backgrounds to Hugo + PaperMod/Chroma.
-   Only retain neutral geometry shared by both themes.
    ========================================================= */
 
-:not(pre) > code {
-    border-radius: 5px;
+html[data-theme="light"] .post-content .highlight,
+html[data-theme="light"] .post-content .chroma,
+html[data-theme="light"] .post-content pre {
+    background: #F5F7F6 !important;
+
+    border: 1px solid #DDE5E1;
+    border-radius: 12px;
 }
 
-pre {
-    border-radius: 10px;
+html[data-theme="light"] .post-content pre code {
+    color: #2F3A37;
+    background: transparent !important;
+}
+
+html[data-theme="light"] .post-content :not(pre) > code {
+    color: #34413D;
+    background: #EEF2F0;
+
+    border: 1px solid #E0E6E3;
+    border-radius: 5px;
+
+    padding: 2px 5px;
 }
 
 
