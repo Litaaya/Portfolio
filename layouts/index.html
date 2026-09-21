@@ -2,8 +2,7 @@
 
 <section class="home-hero">
 
-    <h1>The website is currently incomplete due to my limited frontend skills. </h1>
-    <h2>If you are new here and looking for something, feel free to visit my GitHub to check out my projects or head over to the blog section to read something. This portfolio will be complete in about two days.</h2>
+    <h1>Hi, I am Do Minh Quan</h1>
     <p class="home-intro">
         I am journeying to learn, to seek, and to become my dream.
     </p>
@@ -57,18 +56,22 @@
 
 
 <section class="home-section">
+
+    {{ $projectSite := index (where .Sites "Language.Lang" "en") 0 }}
+    {{ $projectsPage := $projectSite.GetPage "/projects" }}
+
     <div class="home-section-header">
         <h2>Featured Projects</h2>
 
-        <a class="section-link"
-           href="{{ "projects/" | relLangURL }}">
+        {{ with $projectsPage }}
+        <a class="section-link" href="{{ .RelPermalink }}">
             View all
         </a>
+        {{ end }}
     </div>
 
     <div class="project-grid">
 
-        {{ $projectSite := index (where .Sites "Language.Lang" "en") 0 }}
         {{ $projects := where $projectSite.RegularPages "Section" "projects" }}
         {{ $featured := where $projects "Params.featured" true }}
 
@@ -112,28 +115,6 @@
         {{ end }}
 
     </div>
-</section>
-
-
-<section class="home-section">
-
-    <h2>Tech Stack</h2>
-
-    <div class="stack-list">
-
-        <span>Python</span>
-        <span>SQL</span>
-        <span>PostgreSQL</span>
-        <span>Kafka</span>
-        <span>Spark</span>
-        <span>Iceberg</span>
-        <span>dbt</span>
-        <span>Airflow</span>
-        <span>Docker</span>
-        <span>MinIO</span>
-
-    </div>
-
 </section>
 
 
