@@ -14,7 +14,7 @@ Trong lĩnh vực công nghệ thông tin thì thuật ngữ `API` được nh�
 
 Ví dụ ở dưới cho thấy ứng dụng thời tiết gửi request để lấy nhiệt độ của thành phố Hồ Chí Minh, nó sẽ gửi request như bên dưới và nhận về kết quả:
 ```http request
-GET /weather?city=ho-chi-minh
+GET /weather?city=ho-chi-minh HTTP/1.1
 ```
 ```json
 {
@@ -145,7 +145,7 @@ Vậy `REST` là gì ? `REST` là viết tắt cho `Representational State Trans
 
 Hệ thống được mô hình hóa dưới dạng các resource, ví dụ như:
 ```http request
-GET /users
+GET /users HTTP/1.1
 ```
 
 Thay vì:
@@ -158,7 +158,7 @@ Thay vì:
 
 Giả sử db có user `User #123`, user đó là một resource. Khi client gọi:
 ```http request
-GET /users/123
+GET /users/123 HTTP/1.1
 ```
 
 Server sẽ không gửi bản thân resource theo nghĩa vật lý mà là gửi một representation của resource. Ví dụ dưới chính là representation của resource `user 123`:
@@ -189,25 +189,27 @@ Code on Demand: Server có thể gửi executable code cho client.
 
 Query Parameter thường dùng để filter, sort, paginate hoặc bổ sung điều kiện, ví dụ như:
 ```http request
-GET /users?country=vn&active=true
-GET /products?page=10&limit=1
+GET /users?country=vn&active=true HTTP/1.1
+```
+```http request
+GET /products?page=10&limit=1 HTTP/1.1
 ```
 
 Path Parameter dùng để xác định một resource cụ thể, ví dụ như:
 ```http request
-GET /users/{userId}
+GET /users/{userId} HTTP/1.1
 ```
 
 ---
 # Headers
 
 Http headers mang metadata của request hoặc response, ví dụ như:
-```http request
+```text
 Content-Type: application/json
 ```
 
 nghĩa là nội dung body là JSON
-```http request
+```text
 Accept: application/json
 ```
 

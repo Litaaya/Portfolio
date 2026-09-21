@@ -15,7 +15,7 @@ In the field of information technology, the term `API` is mentioned quite often,
 
 The example below shows a weather application sending a request to get the temperature of Ho Chi Minh City, it will send the request below and receive the result:
 ```http request
-GET /weather?city=ho-chi-minh
+GET /weather?city=ho-chi-minh HTTP/1.1
 ```
 
 ```json
@@ -147,7 +147,7 @@ So what is `REST` ? `REST` stands for `Representational State Transfer`, this is
 
 The system is modeled in the form of resources, for example:
 ```http request
-GET /users
+GET /users HTTP/1.1
 ```
 
 Instead of:
@@ -160,7 +160,7 @@ Instead of:
 
 Suppose the db has user `User #123`, that user is a resource. When the client calls:
 ```http request
-GET /users/123
+GET /users/123 HTTP/1.1
 ```
 
 The server will not send the resource itself in the physical sense but will send a representation of the resource. The example below is the representation of resource `user 123`:
@@ -191,25 +191,27 @@ Code on Demand: The server can send executable code to the client.
 
 Query Parameter is commonly used to filter, sort, paginate or add conditions, for example:
 ```http request
-GET /users?country=vn&active=true
-GET /products?page=10&limit=1
+GET /users?country=vn&active=true HTTP/1.1
+```
+```http request
+GET /products?page=10&limit=1 HTTP/1.1
 ```
 
 Path Parameter is used to identify a specific resource, for example:
 ```http request
-GET /users/{userId}
+GET /users/{userId} HTTP/1.1
 ```
 
 ---
 # Headers
 
 Http headers carry metadata of the request or response, for example:
-```http request
+```text
 Content-Type: application/json
 ```
 
 means the body content is JSON
-```http request
+```text
 Accept: application/json
 ```
 
