@@ -9,6 +9,8 @@ defaultContentLanguageInSubdir: true
 params:
   ShowScrollToTop: true
   ShowToc: true
+  disableThemeToggle: true
+  defaultTheme: light
 
 markup:
   goldmark:
