@@ -1,0 +1,139 @@
+{{ define "main" }}
+
+{{ $isBlogHome := .Parent.IsHome }}
+
+<section class="blog-hero">
+    <h1>{{ .Title }}</h1>
+
+    {{ with .Description }}
+    <p>{{ . }}</p>
+    {{ end }}
+</section>
+
+
+{{ if $isBlogHome }}
+
+<section class="blog-section">
+
+    <div class="blog-section-header">
+        <h2>{{ i18n "browseByCategory" }}</h2>
+    </div>
+
+    <div class="blog-categories">
+
+        {{ range .Sections.ByTitle }}
+
+        <a href="{{ .RelPermalink }}" class="blog-category-card">
+
+            <div class="blog-category-top">
+                <h3>{{ .Title }}</h3>
+
+                <span class="blog-category-count">
+                    {{ len .RegularPagesRecursive }}
+                </span>
+            </div>
+
+            {{ with .Description }}
+            <p>{{ . }}</p>
+            {{ end }}
+
+        </a>
+
+        {{ end }}
+
+    </div>
+
+</section>
+
+
+<section class="blog-section">
+
+    <div class="blog-section-header">
+        <h2>{{ i18n "latestWriting" }}</h2>
+    </div>
+
+    <div class="blog-list">
+
+        {{ range first 5 .RegularPagesRecursive.ByDate.Reverse }}
+
+        <article class="blog-list-item">
+
+            <div class="blog-list-content">
+
+                <h3>
+                    <a href="{{ .RelPermalink }}">
+                        {{ .Title }}
+                    </a>
+                </h3>
+
+                {{ with .Description }}
+                <p>{{ . }}</p>
+                {{ end }}
+
+                {{ with .CurrentSection }}
+                    {{ if ne .RelPermalink $.RelPermalink }}
+
+                    <a
+                        href="{{ .RelPermalink }}"
+                        class="blog-category-label"
+                    >
+                        {{ .Title }}
+                    </a>
+
+                    {{ end }}
+                {{ end }}
+
+            </div>
+
+            <time datetime="{{ .Date.Format "2006-01-02" }}">
+                {{ .Date | time.Format ":date_medium" }}
+            </time>
+
+        </article>
+
+        {{ end }}
+
+    </div>
+
+</section>
+
+
+{{ else }}
+
+<section class="blog-section blog-category-posts">
+
+    <div class="blog-list">
+
+        {{ range .RegularPagesRecursive.ByDate.Reverse }}
+
+        <article class="blog-list-item">
+
+            <div class="blog-list-content">
+
+                <h3>
+                    <a href="{{ .RelPermalink }}">
+                        {{ .Title }}
+                    </a>
+                </h3>
+
+                {{ with .Description }}
+                <p>{{ . }}</p>
+                {{ end }}
+
+            </div>
+
+            <time datetime="{{ .Date.Format "2006-01-02" }}">
+                {{ .Date | time.Format ":date_medium" }}
+            </time>
+
+        </article>
+
+        {{ end }}
+
+    </div>
+
+</section>
+
+{{ end }}
+
+{{ end }}
