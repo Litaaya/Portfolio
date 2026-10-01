@@ -292,3 +292,64 @@ df = df.drop(index=0)
 ```
 
 ---
+# Apply, map and vectorized operations
+
+Thông thường khi thao tác với các cột, ưu tiên thao tác trực tiếp trên column thay vì sử dụng loop, ví dụ như:
+```python
+df["price_with_tax"] = (df["price"] * 1.1)
+```
+
+Bản chất pandas được thiết kể để thao tác theo column/vector. Trong trường hợp nếu cần custom function, có thể sử dụng:
+```python
+def categorize(age):
+    if age >= 18:
+        return "adult"
+    return "minor"
+
+df["category"] = df["age"].apply(categorize)
+```
+
+hoặc mapping trực tiếp:
+```python
+mapping = {
+    "HCM": "South",
+    "HN": "North"
+}
+
+df["region"] = df["city"].map(mapping)
+```
+
+Lưu ý: thông thường nếu rule đơn giản nên biết vectorized khi có thể, `apply()` sử dụng tốt nhưng không phải lúc nào cũng là lựa chọn nhanh nhất.
+
+---
+# GroupBy and Aggeration
+
+Cho một ví dụ như sau:
+```python
+df.groupby("category")["sales"].sum()
+```
+
+Ý nghĩa của đoạn code sau là sẽ group theo category, lấy sales và sum lại, cuối cùng là tạo ra một bảng mới.
+
+Ví dụ sử dụng nhiều aggregation:
+```python
+df.groupby("category")["sales"].agg(["sum", "mean", "count"])
+```
+
+hoặc nhiều columns:
+```python
+result = df.groupby("category").agg(
+    total_sales=("sales", "sum"),
+    avg_price=("price", "mean"),
+    count=("id", "count")
+)
+```
+
+Thông thường sau khi chạy xong, cột define trong `groupby` sẽ trở thành index, lúc này có thể sử dụng:
+```python
+result = result.reset_index()
+```
+
+để tách cột ra và trả về cột index bình thường ở đầu bảng.
+
+---
