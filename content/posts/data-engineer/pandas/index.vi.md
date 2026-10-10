@@ -1,7 +1,7 @@
 ---
 title: "Pandas"
 date: 2026-09-21
-draft: true
+draft: false
 tags: ["Pandas"]
 description: "Một vài kiến thức cơ bản về pandas"
 ---

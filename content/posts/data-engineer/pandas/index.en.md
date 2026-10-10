@@ -1,7 +1,7 @@
 ---
 title: "Pandas"
 date: 2026-09-21
-draft: true
+draft: false
 tags: ["Pandas"]
 description: "Some basic knowledge about pandas"
 ---
