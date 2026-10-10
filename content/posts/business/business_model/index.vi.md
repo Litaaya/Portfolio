@@ -1,7 +1,7 @@
 ---
 title: "Business Model and Business Domain Knowledge"
 date: 2026-10-10
-draft: true
+draft: false
 tags: []
 description: "Tuần 41"
 ---
