@@ -353,3 +353,287 @@ result = result.reset_index()
 để tách cột ra và trả về cột index bình thường ở đầu bảng.
 
 ---
+# Merge / Join
+
+Ví dụ mình có hai bảng là `customers` và `orders`, mình sẽ join bằng cách:
+```python
+result = pd.merge(
+    orders,
+    customers,
+    on="customer_id",
+    how="left"
+)
+```
+
+nếu muốn join với nhiều key, sử dụng `on=["id", "date"]`. Nếu key có tên khác nhau ở hai bản có thể sử dụng:
+```python
+pd.merge(
+    df1,
+    df2,
+    left_on="customer_id",
+    right_on="id"
+)
+```
+
+---
+# Concatenate
+
+Nếu muốn nối 2 rows với nhau, sử dụng syntax:
+```python
+df = pd.concat(
+    [df1, df2],
+    ignore_index=True
+)
+```
+
+Nếu muốn nối 2 columns với nhau, sử dụng syntax:
+```python
+pd.concat(
+    [df1, df2],
+    axis=1
+)
+```
+
+---
+# Pivot Table
+
+Pivot được sử dụng để có thể reshape va summarize data. Ví dụ như:
+```python
+pd.pivot_table(
+    df,
+    values="sales",
+    index="category",
+    columns="years",
+    aggfunc="sum"
+)
+```
+
+Ví dụ với bảng cụ thể:
+
+| category | years | sales |
+|----------|-------|-------|
+| Áo       | 2023  | 100   |
+| Áo       | 2023  | 150   |
+| Áo       | 2024  | 200   |
+| Quần     | 2023  | 300   |
+| Quần     | 2024  | 400   |
+
+
+sau khi chạy xong sẽ cho ra kết quả mới:
+
+| category | 2023 | 2024 |
+|----------|------|------|
+| Áo       | 250  | 200  |
+| Quần     | 300  | 400  |
+
+Khi nhắc tới pivot, nó sẽ có hai kiểu đó là `pivot` và `pivot_table`. Với `df.pivot()` thì nó chỉ đơn thuần là xoay bảng không có tính toán, nếu dữ liệu gốc có 2 dòng trở lên trùng lặp, ví dụ như category hay years thì pivot nó sẽ văng lỗi. Với thằng còn lại nó sẽ an toàn hơn vì có `aggfunc`, khi gặp các dòng trùng nhau, nó sẽ tự động dùng hàm để gộp lại thành 1 con số duy nhất.
+
+Ví dụ cụ thể:
+```python
+pd.pivot_table(
+    df,
+    values="sales",
+    index="category",
+    columns="years",
+    aggfunc="sum",
+    fill_value=0,   # Điền số 0 vào các ô bị khuyết (NaN) thay vì để trống
+    margins=True    # Tự động thêm một cột total ở cuối (cộng dồn)
+)
+```
+---
+# Datetime
+
+```python
+df["date"] = pd.to_datetime(         # chuyển đổi kiểu dữ liệu
+    df["date"]
+)
+
+df["year"] = df["date"].dt.year      # Lấy thông tin year, tương tự cho month, day, dayname
+df["month"] = df["date"].dt.month
+df["day"] = df["date"].dt.day
+df["weekday"] = (
+    df["date"].dt.day_name()
+)
+
+# filter date
+df[
+    df["date"]
+    >= "2026-01-01"
+]
+```
+---
+# String Operations
+
+Với string column, mình sẽ sử dụng `.str`:
+```python
+df["name"] = (
+    df["name"].str.lower()
+)
+
+df["name"] = (
+    df["name"].str.strip()
+)
+
+df[
+    df["name"]
+    .str.contains("john", case=False, na=False)
+]
+
+df["phone"] = (
+    df["phone"]
+    .str.replace("-", "", regex=False)
+)
+```
+
+---
+# Unique and Frequency
+
+Unique values:
+```python
+# trả về một array chứa các tên danh mục không trùng lặp
+df["category"].unique()
+
+# trả về 1 con số nguyên duy nhất (không đếm NaN), ví dụ trả về 2 nghĩa là có tổng 2 giá trị unique
+df["category"].nunique()
+```
+
+Frequency:
+```python
+# Đếm xem mỗi giá trị xuất hiện bao nhiêu lần trong cột và tự động sắp xếp từ nhiều nhất đến ít nhất
+# Biến normalize đổi số lượng đếm thành tỷ lệ phần trăm
+df["category"].value_counts(normalize=True)
+```
+
+---
+# Export data
+
+```python
+df.to_csv(
+    "output.csv",
+    index=False
+)
+
+df.to_excel(
+    "output.xlsx",
+    index=False
+)
+
+df.to_json(
+    "output.json",
+    orient="records"
+)
+
+df.to_sql(
+    "table_name",
+    connection,
+    if_exists="append",
+    index=False
+)
+```
+
+---
+# Workflow
+
+```python
+import pandas as pd
+
+# load
+df = pd.read_csv("Litaaya.csv")
+
+# inspect
+print(df.head())
+print(df.info())
+print(df.isna().sum())
+
+# clean
+df = df.drop_duplicates()
+
+df["date"] = pd.to_datetime(
+    df["date"],
+    errors="coerce"
+)
+
+# transform
+df["year"] = df["date"].dt.year
+
+# filter
+df = df[
+    df["sales"] > 0
+]
+
+# aggregate
+summary = (
+    df.groupby("category").agg(
+        total_sales=("sales", "sum"),
+        avg_sales=("sales", "mean"),
+        count=("sales", "count")
+    ).reset_index()
+)
+
+# sort
+summary = summary.sort_values(
+    "total_sales",
+    ascending=False
+)
+
+# export
+summary.to_csv(
+    "summary.csv",
+    index=False
+)
+```
+
+---
+# Cheatsheet
+
+| Mục đích           | Syntax                          |
+|--------------------|---------------------------------|
+| Import             | `import pandas as pd`           |
+| Create DataFrame   | `pd.DataFrame(data)`            |
+| Read CSV           | `pd.read_csv("file.csv")`       |
+| Read Excel         | `pd.read_excel("file.xlsx")`    |
+| Read JSON          | `pd.read_json("file.json")`     |
+| Xem đầu            | `df.head()`                     |
+| Xem cuối           | `df.tail()`                     |
+| Thông tin          | `df.info()`                     |
+| Thống kê           | `df.describe()`                 |
+| Kích thước         | `df.shape`                      |
+| Columns            | `df.columns`                    |
+| Dtypes             | `df.dtypes`                     |
+| Một column         | `df["col"]`                     |
+| Nhiều columns      | `df[["a", "b"]]`                |
+| Label selection    | `df.loc[...]`                   |
+| Position selection | `df.iloc[...]`                  |
+| Filter             | `df[df["age"] > 18]`            |
+| AND                | `(cond1) & (cond2)`             |
+| OR                 | `(cond1) \| (cond2)`            |
+| Trong list         | `df["col"].isin([...])`         |
+| Sort               | `df.sort_values("col")`         |
+| Missing            | `df.isna()`                     |
+| Đếm missing        | `df.isna().sum()`               |
+| Fill missing       | `df["col"].fillna(value)`       |
+| Drop missing       | `df.dropna()`                   |
+| Duplicates         | `df.duplicated()`               |
+| Drop duplicates    | `df.drop_duplicates()`          |
+| Convert numeric    | `pd.to_numeric()`               |
+| Convert datetime   | `pd.to_datetime()`              |
+| Convert dtype      | `df["col"].astype(...)`         |
+| Rename             | `df.rename(columns={...})`      |
+| Drop column        | `df.drop(columns=[...])`        |
+| New column         | `df["new"] = ...`               |
+| Replace            | `df["col"].replace(...)`        |
+| Apply              | `df["col"].apply(func)`         |
+| Unique             | `df["col"].unique()`            |
+| Count unique       | `df["col"].nunique()`           |
+| Frequency          | `df["col"].value_counts()`      |
+| Group              | `df.groupby("col")`             |
+| Aggregate          | `.agg(...)`                     |
+| Merge              | `pd.merge(df1, df2, ...)`       |
+| Concatenate        | `pd.concat([df1, df2])`         |
+| Pivot              | `pd.pivot_table(...)`           |
+| Mean               | `df["col"].mean()`              |
+| Sum                | `df["col"].sum()`               |
+| Min/Max            | `.min()` / `.max()`             |
+| Correlation        | `df.corr(numeric_only=True)`    |
+| Export CSV         | `df.to_csv(..., index=False)`   |
+| Export Excel       | `df.to_excel(..., index=False)` |
