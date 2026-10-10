@@ -1,0 +1,220 @@
+{{ if .Params.business_lock }}
+
+<style>
+    html.business-locked body > * {
+        visibility: hidden !important;
+    }
+
+    html.business-locked #business-lock {
+        visibility: visible !important;
+    }
+
+    #business-lock {
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: var(--theme);
+        color: var(--primary);
+    }
+
+    .business-lock-box {
+        width: min(90%, 380px);
+        padding: 32px;
+
+        border: 1px solid var(--border);
+        border-radius: 12px;
+
+        background: var(--entry);
+
+        text-align: center;
+    }
+
+    .business-lock-box h2 {
+        margin-bottom: 8px;
+    }
+
+    .business-lock-box p {
+        margin-bottom: 20px;
+        opacity: 0.8;
+    }
+
+    .business-lock-box input {
+        width: 100%;
+        padding: 10px 12px;
+        margin-bottom: 12px;
+
+        border: 1px solid var(--border);
+        border-radius: 8px;
+
+        background: var(--theme);
+        color: var(--primary);
+    }
+
+    .business-lock-box button {
+        width: 100%;
+        padding: 10px 12px;
+
+        border: none;
+        border-radius: 8px;
+
+        cursor: pointer;
+
+        background: var(--primary);
+        color: var(--theme);
+    }
+
+    .business-lock-error {
+        margin-top: 12px;
+        margin-bottom: 0 !important;
+
+        font-size: 14px;
+        color: #d33;
+
+        display: none;
+    }
+</style>
+
+
+<script>
+    document.documentElement.classList.add("business-locked");
+
+    (() => {
+
+        // THAY HASH Ở ĐÂY
+        const PASSWORD_HASH =
+            "42ad39738c7f2fe89a409a48f062014b27dbd40315ffc91831d715ee3696cc7c";
+
+        const SESSION_KEY = "businessUnlocked";
+
+        // Nếu đã unlock trong session hiện tại
+        if (sessionStorage.getItem(SESSION_KEY) === PASSWORD_HASH) {
+            document.documentElement.classList.remove("business-locked");
+            return;
+        }
+
+        async function sha256(text) {
+
+            const encoded = new TextEncoder().encode(text);
+
+            const buffer = await crypto.subtle.digest(
+                "SHA-256",
+                encoded
+            );
+
+            return Array.from(new Uint8Array(buffer))
+                .map(byte =>
+                    byte.toString(16).padStart(2, "0")
+                )
+                .join("");
+        }
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const overlay = document.createElement("div");
+
+            overlay.id = "business-lock";
+
+            overlay.innerHTML = `
+                <div class="business-lock-box">
+
+                    <h2>Business Notes</h2>
+
+                    <p>
+                        This section is password protected.
+                    </p>
+
+                    <input
+                        id="business-password"
+                        type="password"
+                        placeholder="Password"
+                        autocomplete="current-password"
+                    >
+
+                    <button id="business-unlock">
+                        Unlock
+                    </button>
+
+                    <p
+                        id="business-lock-error"
+                        class="business-lock-error"
+                    >
+                        Incorrect password
+                    </p>
+
+                </div>
+            `;
+
+            document.body.appendChild(overlay);
+
+
+            const input =
+                document.getElementById("business-password");
+
+            const button =
+                document.getElementById("business-unlock");
+
+            const error =
+                document.getElementById("business-lock-error");
+
+
+            async function unlock() {
+
+                const hash =
+                    await sha256(input.value);
+
+                if (hash === PASSWORD_HASH) {
+
+                    sessionStorage.setItem(
+                        SESSION_KEY,
+                        PASSWORD_HASH
+                    );
+
+                    document.documentElement
+                        .classList
+                        .remove("business-locked");
+
+                    overlay.remove();
+
+                } else {
+
+                    error.style.display = "block";
+
+                    input.value = "";
+                    input.focus();
+
+                }
+            }
+
+
+            button.addEventListener(
+                "click",
+                unlock
+            );
+
+
+            input.addEventListener(
+                "keydown",
+                event => {
+
+                    if (event.key === "Enter") {
+                        unlock();
+                    }
+
+                }
+            );
+
+
+            input.focus();
+
+        });
+
+    })();
+</script>
+
+{{ end }}
