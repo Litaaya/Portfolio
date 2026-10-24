@@ -15,6 +15,9 @@ description: "N câu hỏi ?"
 ### 3: Mình có quyền để tha thứ cho sai lầm của bản thân trong quá khứ không, khi mình đã làm tổn thương người khác ?
 
 
-
 ---
 ### 4: Tại sao con người lại khóc khi hạnh phúc và cười khi đau khổ vậy nh ?
+
+
+---
+### 5: Nếu mọi sinh vật rồi cũng sẽ rời khỏi thế gian, vậy thì ý nghĩa của sự sống là gì ?
