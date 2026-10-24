@@ -193,7 +193,7 @@ Internal Data Service
 ```
 
 ---
-## Firewall
+# Firewall
 
 Firewall is used to define who is allowed to connect to which resource and through which port.
 
@@ -212,7 +212,7 @@ to everyone.
 Instead, it can be defined that only applications in the internal network are allowed to connect to PostgreSQL.
 
 ---
-## Route
+# Route
 
 Route determines the path that network traffic will take. For example if resource A wants to send data to resource B then the network needs to know the path to deliver traffic to the correct place - Route helps perform that.
 

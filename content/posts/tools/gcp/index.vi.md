@@ -193,7 +193,7 @@ Internal Data Service
 ```
 
 ---
-## Firewall
+# Firewall
 
 Firewall dùng để quy định ai được phép kết nối tới resource nào và thông qua port nào.
 
@@ -212,7 +212,7 @@ cho tất cả mọi người.
 Thay vào đó có thể quy định chỉ application trong internal network mới được kết nối PostgreSQL.
 
 ---
-## Route
+# Route
 
 Route quyết định đường mà network traffic sẽ đi. Ví dụ như resource A muốn gửi dữ liệu tới resource B thì network cần biết đường để đưa traffic tới đúng nơi - Route giúp thực hiện việc đó.
 
